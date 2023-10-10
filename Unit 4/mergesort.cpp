@@ -79,7 +79,7 @@ int main()
         cin >> a[i];
     }
 
-    merge_sort(a,0,n);
+    merge_sort(a,0,n-1);
 
     cout << "Array After Merge Sort: ";
 
