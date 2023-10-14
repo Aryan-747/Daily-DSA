@@ -42,6 +42,40 @@ void insertattail(Node* &tail , int d)
     
 }
 
+// Function to Insert at Given Pos..
+
+void insertatgivenpos(Node* &tail, Node* &head, int pos , int d)
+{
+
+    Node* nodetoins = new Node(d);
+    Node* temp = head;
+
+
+    if(pos == 1)
+    {
+        insertathead(head,d);
+        return;
+    }
+
+    int cnt = 1;
+
+    while(cnt<pos-1)
+    {
+        temp = temp->next;
+        cnt++;
+    }
+
+    if(temp->next == NULL)
+    {
+        insertattail(tail,d);
+        return;
+    }
+
+    nodetoins->next = temp->next;
+    temp->next = nodetoins;
+
+
+}
 
 void display(Node* &head)
 {
@@ -70,4 +104,13 @@ int main()
 
     insertattail(tail,69);
     display(head);
+
+    insertattail(tail,10);
+    display(head);
+
+    insertatgivenpos(tail,head,5,55);
+    display(head);
+
+    cout << "Tail " << tail->data << endl;
+    cout << "Head " << head->data << endl;
 }
