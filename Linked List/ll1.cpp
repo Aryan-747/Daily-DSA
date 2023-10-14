@@ -30,6 +30,19 @@ void insertathead(Node* &head , int d)
     head = temp;
 }
 
+// Function to Insert at tail..
+
+void insertattail(Node* &tail , int d)
+{
+
+    Node *temp = new Node(d);
+
+    tail->next = temp;
+    tail = temp;
+    
+}
+
+
 void display(Node* &head)
 {
     Node* temp = head;
@@ -48,12 +61,13 @@ int main()
     Node* node1 = new Node(10);
 
     Node* head = node1;
+    Node* tail = node1;
 
     display(head);
 
-    insertathead(head,15);
+    insertattail(tail,15);
     display(head);
 
-    insertathead(head,69);
+    insertattail(tail,69);
     display(head);
 }
