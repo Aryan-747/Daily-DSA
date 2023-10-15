@@ -93,7 +93,7 @@ void insertatgivenpos(Node* &tail, Node* &head, int pos , int d)
 }
 
 
-void deleteatgivenpos(int pos , Node* &head)
+void deleteatgivenpos(int pos , Node* &head , Node* &tail)
 {
 
     if(pos == 1)
@@ -120,6 +120,12 @@ void deleteatgivenpos(int pos , Node* &head)
         }
 
         prev->next = curr->next;
+
+        if(prev->next == NULL)
+        {
+            tail = prev;
+        }
+
         curr->next = NULL;
         delete curr;
 
@@ -154,13 +160,13 @@ int main()
     insertattail(tail,69);
     display(head);
 
-    insertattail(tail,10);
+    insertattail(tail,72);
     display(head);
 
     insertatgivenpos(tail,head,5,55);
     display(head);
 
-    deleteatgivenpos(4,head);
+    deleteatgivenpos(5,head,tail);
     display(head);
 
     cout << "Tail " << tail->data << endl;
