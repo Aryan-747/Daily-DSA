@@ -8,13 +8,30 @@ class Node
     public:
     
     int data;
-    Node * next;
+    Node *next;
 
 
+    //Constructor
     Node(int data)
     {
         this->data = data;
         this->next = NULL;
+    }
+
+    //Destructor
+
+    ~Node()
+    {
+        int val = this->data;
+
+        if(this->next != NULL)
+        {
+            delete next;
+            this->next = NULL;
+        }
+
+        cout << "Memory has been freed for Node with Data " << val << endl;
+
     }
 
 };
@@ -73,7 +90,40 @@ void insertatgivenpos(Node* &tail, Node* &head, int pos , int d)
 
     nodetoins->next = temp->next;
     temp->next = nodetoins;
+}
 
+
+void deleteatgivenpos(int pos , Node* &head)
+{
+
+    if(pos == 1)
+    {
+        Node* temp = head;
+        head = head->next;
+        temp->next = NULL;
+
+        delete temp;
+    }
+
+    else
+    {
+        int cnt = 1;
+
+        Node *prev = NULL;
+        Node *curr = head;
+
+        while(cnt < pos)
+        {
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+
+    }
 
 }
 
@@ -88,7 +138,6 @@ void display(Node* &head)
     }
     cout << "NULL" << endl;
 }
-
 
 int main()
 {
@@ -109,6 +158,9 @@ int main()
     display(head);
 
     insertatgivenpos(tail,head,5,55);
+    display(head);
+
+    deleteatgivenpos(4,head);
     display(head);
 
     cout << "Tail " << tail->data << endl;
