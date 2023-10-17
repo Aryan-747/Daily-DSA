@@ -113,8 +113,8 @@ void deleteatgivenpos(Node* &head , Node* &tail , int pos)
     if(pos == 1)
     {
         Node* temp = head;
-        head = temp->next;
         temp->next->prev = NULL;
+        head = temp->next;
         temp->next = NULL;
 
         delete temp;
