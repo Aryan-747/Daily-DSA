@@ -93,21 +93,8 @@ int main()
     Node *head;
     Node *tail;
 
-    Node *n1 = new Node(10);
-    head = n1;
-    tail = n1;
-
-    display(head);
-
-    insertattail(tail,15);
-    display(head);
-
-    insertathead(head,69);
-    display(head);
-
-
-   /* cout << "Enter Number of Nodes: ";
-    cin >> n;
+   cout << "Enter Number of Nodes: ";
+   cin >> n;
 
     for(int i=0 ; i<n ; i++)
     {
@@ -123,10 +110,12 @@ int main()
 
         else
         {
-            insertathead(head,data);
+            insertattail(tail,data);
         }
     }
 
-    */
+    display(head);
+    cout << "Head is: " << head->data << endl;
+    cout << "Tail is: " << tail->data << endl;
 
 }
