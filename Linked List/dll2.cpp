@@ -72,6 +72,50 @@ void insertatgivenpos(Node* &head , Node* &tail , int pos , int d)
 }
 
 
+void deleteatgivenpos(Node* &head , Node* &tail , int pos)
+{
+    if(pos == 1)
+    {
+        Node *temp = head;
+        head = temp->next;
+        temp->next = NULL;
+        head->prev = NULL;
+        
+        delete temp;
+        
+        return;
+    }
+
+    int c = 1;
+
+    Node *prev = NULL;
+    Node *curr = head;
+
+    while(c<pos)
+    {
+        prev = curr;
+        curr = curr->next;
+        c++;
+    }
+
+    if(curr->next == NULL)
+    {
+        tail = curr->prev;
+        tail->next = NULL;
+        curr->prev = NULL;
+
+        delete curr;
+        return;
+    }
+
+    prev->next = curr->next;
+    curr->next->prev = prev;
+    curr->prev = NULL;
+    curr->next = NULL;
+
+}
+
+
 void display(Node* &head)
 {
     Node *temp = head;
@@ -116,7 +160,7 @@ int main()
 
     display(head);
 
-    insertatgivenpos(head,tail,6,420);
+    deleteatgivenpos(head,tail,3);
     display(head);
 
     cout << "Head is: " << head->data << endl;
