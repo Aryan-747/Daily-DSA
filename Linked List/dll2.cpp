@@ -12,11 +12,10 @@ class Node
 
     Node(int d)
     {
-        Node *temp;
 
-        temp->data = d;
-        temp->prev = NULL;
-        temp->next = NULL;
+        this->data = d;
+        this->next = NULL;
+        this->prev = NULL;
     }
 };
 
@@ -73,14 +72,11 @@ void insertatgivenpos(Node* &head , Node* &tail , int pos , int d)
 }
 
 
-
-
-
 void display(Node* &head)
 {
     Node *temp = head;
 
-    while(temp->next != NULL)
+    while(temp != NULL)
     {
         cout << temp->data << " -> ";
         temp = temp->next;
@@ -88,20 +84,14 @@ void display(Node* &head)
     cout << "NULL" << endl;
 }
 
-
-
-
-
-
 int main()
 {
 
     int n;
     int data;
+
     Node *head;
     Node *tail;
-
-
 
     Node *n1 = new Node(10);
     head = n1;
@@ -114,7 +104,6 @@ int main()
 
     insertathead(head,69);
     display(head);
-
 
 
    /* cout << "Enter Number of Nodes: ";
