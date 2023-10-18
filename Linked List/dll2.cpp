@@ -59,7 +59,7 @@ void insertatgivenpos(Node* &head , Node* &tail , int pos , int d)
         c++;
     }
 
-    if(temp->next = NULL)
+    if(temp->next == NULL)
     {
         insertattail(tail,d);
         return;
@@ -115,6 +115,10 @@ int main()
     }
 
     display(head);
+
+    insertatgivenpos(head,tail,6,420);
+    display(head);
+
     cout << "Head is: " << head->data << endl;
     cout << "Tail is: " << tail->data << endl;
 
