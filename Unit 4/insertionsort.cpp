@@ -2,11 +2,8 @@
 
 using namespace std;
 
-
 void inssort(int a[], int n)
 {
-
-
     for(int i=1 ; i<n ; i++)
     {
         int key = a[i];
