@@ -1,5 +1,5 @@
 #include<iostream>
-#define SIZE 10
+#define SIZE 3
 
 using namespace std;
 
@@ -10,17 +10,48 @@ int queue[SIZE];
 
 void enqueue(int value)
 {
+    if(rear == SIZE)
+    {
+        cout << "Queue Overflow" << endl;
+    }
+
+    else
+    {
+        queue[rear] = value;
+        rear++;
+    }
 
 }
 
 void dequeue()
 {
+    if(rear == front)
+    {
+        cout << "Queue Underflow" << endl;
+    }
+
+    else
+    {
+        cout << "Deleted Element is: " << queue[front] << endl;
+        front++;
+    }
 
 }
 
 void display()
 {
+    if(rear == front)
+    {
+        cout << "Queue Underflow" << endl;
+    }
 
+    else
+    {
+        for(int i=front ; i<rear ; i++)
+        {
+            cout << queue[i] << " ";
+        }
+    }
 }
 
 
@@ -60,4 +91,5 @@ int main()
 
         }
 
+}
 }
