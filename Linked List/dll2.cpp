@@ -113,6 +113,8 @@ void deleteatgivenpos(Node* &head , Node* &tail , int pos)
     curr->prev = NULL;
     curr->next = NULL;
 
+    delete curr;
+
 }
 
 
