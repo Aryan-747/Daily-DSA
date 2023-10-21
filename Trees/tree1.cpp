@@ -20,8 +20,7 @@ class Node
 
 };
 
-
-void inorder(Node* root)
+void inorder(Node* root) // LNR
 {
     if(root == NULL)
     {
@@ -33,8 +32,7 @@ void inorder(Node* root)
     inorder(root->right);
 }
 
-
-void preorder(Node* root)
+void preorder(Node* root) // NLR
 {
     if(root == NULL)
     {
@@ -46,7 +44,7 @@ void preorder(Node* root)
     preorder(root->right);
 }
 
-void postorder(Node* root)
+void postorder(Node* root) // LRN
 {
     if(root == NULL)
     {
