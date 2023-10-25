@@ -39,6 +39,38 @@ void insertattail(Node* &tail, int d)
     tail = temp;
 }
 
+void insertatgivenpos(Node* &head , Node* &tail ,int pos ,int d)
+{
+    if(pos == 1)
+    {
+        insertathead(head,d);
+        return;
+    }
+
+    int cunt = 1;
+
+    Node *temp = head;
+    Node *toins = new Node(d);
+
+    while(cunt<pos-1)
+    {
+        temp = temp->next;
+        cunt++;
+    }
+
+    if(temp->next == NULL)
+    {
+        insertattail(tail,d);
+        return;
+    }
+
+    toins->next = temp->next;
+    temp->next->prev = toins;
+    toins->prev = temp;
+    temp->next = toins;
+
+}
+
 
 void display(Node* &head)
 {
@@ -62,8 +94,12 @@ int main()
     Node *head = n1;
     Node *tail = n1;
 
-    insertathead(head,15);
-    insertathead(head,69);
+    insertattail(tail,15);
+    insertattail(tail,69);
+    insertatgivenpos(head,tail,1,51);
+    insertatgivenpos(head,tail,5,651);
     display(head);
+    cout << "Head: " << head->data << endl;
+    cout << "Tail: " << tail->data << endl;
 
 }
