@@ -143,17 +143,15 @@ void find(Node* &head , int data)
         {
             cout << "Found at Position: " << pos << endl;
             check = true;
-            return;
+            break;
         }
-
         pos++;
         temp = temp->next;
+    }
 
-        if(check == false)
-        {
-            cout << "Not Found!" << endl;
-            return;
-        }
+    if(check == false)
+    {
+        cout << "Not Found !" << endl;
     }
 
 }
@@ -175,7 +173,7 @@ int main()
     deleteatgivenpos(head,tail,5);
     //deleteatgivenpos(head,tail,1);
     display(head);
-    find(head,651);
+    find(head,69);
     cout << "Head: " << head->data << endl;
     cout << "Tail: " << tail->data << endl;
 
