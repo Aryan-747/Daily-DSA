@@ -91,6 +91,35 @@ void getinput(Node* &root)
     }
 }
 
+Node* deletefrombst(Node* &root, int val)
+{
+    if(root == NULL)
+    {
+        return root;
+    }
+
+    if(root->data == val)
+    {
+        // 0 Child
+
+        // 1 Child
+
+        // 2 Child
+    }
+
+    else if (root->data > val)
+    {
+        root->left = deletefrombst(root->left,val);
+        return root;
+    }
+
+    else
+    {
+        root->right = deletefrombst(root->right,val);
+        return root;
+    }
+}
+
 int main()
 {
     Node *root = NULL;
