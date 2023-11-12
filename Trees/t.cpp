@@ -62,12 +62,5 @@ int main()
 
     root = buildtree(root);
 
-    //inorder(root);
-
-    for(int i=0 ; i<100 ; i++)
-    {
-        cout << root[i] << " ";
-    }
-
-
+    inorder(root);
 }
