@@ -91,6 +91,30 @@ void getinput(Node* &root)
     }
 }
 
+Node* minval(Node* &root)
+{
+    Node *temp = root;
+
+    while(temp->left != NULL)
+    {
+        temp = temp->left;
+    }
+
+    return temp;
+}
+
+Node* maxval(Node* &root)
+{
+    Node *temp = root;
+
+    while(temp->right != NULL)
+    {
+        temp = temp->right;
+    }
+
+    return temp;
+}
+
 Node* deletefrombst(Node* &root, int val)
 {
     if(root == NULL)
@@ -102,9 +126,43 @@ Node* deletefrombst(Node* &root, int val)
     {
         // 0 Child
 
+        if(root->left == NULL && root->right == NULL)
+        {
+            delete root;
+            return NULL;
+        }
+
         // 1 Child
+        
+        // Left Child
+
+        if(root->left != NULL && root->right == NULL)
+        {
+            Node *temp = root->left;
+            delete root;
+            return temp;
+        }
+
+        // Right Child
+
+        if(root->left == NULL && root->right != NULL)
+        {
+            Node *temp = root->right;
+            delete root;
+            return temp;
+        }
 
         // 2 Child
+
+        if(root->left != NULL &&  root->right != NULL)
+        {
+            int mini = minval(root->right)->data;
+            root->data = mini;
+            root->right = deletefrombst(root->right,mini);
+            return root;
+        }
+
+        return root;
     }
 
     else if (root->data > val)
@@ -139,5 +197,28 @@ int main()
     cout << "Postorder Traversal: ";
     postorder(root);
     cout << endl;
+
+    cout << "Min Value in Tree: " << minval(root)->data << endl;
+    cout << "Max Value in Tree: " << maxval(root)->data << endl;
+
+    // Deletion 
+    root = deletefrombst(root,50);
+
+
+    cout << "Preorder Traversal: ";
+    preorder(root);
+    cout << endl;
+
+    cout << "Inorder Traversal: ";
+    inorder(root);
+    cout << endl;
+
+    cout << "Postorder Traversal: ";
+    postorder(root);
+    cout << endl;
+
+    cout << "Min Value in Tree: " << minval(root)->data << endl;
+    cout << "Max Value in Tree: " << maxval(root)->data << endl;
+
 
 }
