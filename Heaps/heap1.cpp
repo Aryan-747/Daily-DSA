@@ -60,24 +60,28 @@ class heap
 
         // Step 3: Put Root Element in Correct Position.
 
-        int i = 1;
+        int index = 1;
+        while(index < size){
 
-        while(i<size)
-        {
-            int leftindex = 2*i;
-            int rightindex = 2*i + 1;
+            int leftIndex = 2 * index;
+            int rightIndex = 2 * index + 1;
+            int swapIndex = index;
 
-            if(leftindex<size && arr[i] < arr[leftindex])
+           if(leftIndex <= size && arr[swapIndex] < arr[leftIndex])
+           {
+               swapIndex = leftIndex;
+           }
+           if(rightIndex <= size && arr[swapIndex] < arr[rightIndex])
+           {
+               swapIndex = rightIndex;
+           }
+
+            if(index != swapIndex)
             {
-                swap(arr[i],arr[leftindex]);
-                i = leftindex;
+                swap(arr[index], arr[swapIndex]);
+                index = swapIndex;
             }
 
-            else if (rightindex < size && arr[i] < arr[rightindex])
-            {
-                swap(arr[i],arr[rightindex]);
-                i = rightindex;
-            }
             else
             {
                 return;
